@@ -9,9 +9,6 @@ on:
 
   workflow_dispatch:
 
-env:
-  HOMEBREW_VERBOSE: 1
-
 jobs:
   install:
     runs-on: ${{ matrix.os }}
@@ -27,6 +24,8 @@ jobs:
       # This action automatically installs the locally checked out tap.
       - name: Set up Homebrew
         uses: Homebrew/actions/setup-homebrew@master
+        env:
+          HOMEBREW_DEVELOPER: 1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
