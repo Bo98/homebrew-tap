@@ -9,6 +9,9 @@ on:
 
   workflow_dispatch:
 
+env:
+  HOMEBREW_NO_AUTO_UPDATE: 1
+
 jobs:
   install:
     runs-on: ${{ matrix.os }}
@@ -28,8 +31,6 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Install CLI
-        env:
-          HOMEBREW_NO_AUTO_UPDATE: 1
         run: |
           brew install databricks
 
