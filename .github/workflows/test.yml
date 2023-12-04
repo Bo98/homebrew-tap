@@ -9,6 +9,9 @@ on:
 
   workflow_dispatch:
 
+env:
+  HOMEBREW_SORBET_RUNTIME: 1
+
 jobs:
   install:
     runs-on: ${{ matrix.os }}
@@ -29,7 +32,6 @@ jobs:
 
       - name: Install CLI
         run: |
-          brew info databricks
           brew install databricks
 
       - name: Run CLI
